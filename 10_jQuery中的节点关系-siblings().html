@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>siblings方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            width: 40px;
+            height: 40px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+        }
+        h3{
+            width: 40px;
+            height: 40px;
+            background-color:#ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p></p>
+    <p></p>
+    <p class="xiaoming"></p>
+    <p></p>
+    <p></p>
+</div>
+
+<script src="./js/jquery-1.12.3.min.js"></script>
+<script>
+    // $(".xiaoming").siblings().css("backgroundColor","red")
+    $("p").mouseenter(function () {
+        $(this).prev().css("backgroundColor","blue")
+    })
+</script>
+</body>
+</html>

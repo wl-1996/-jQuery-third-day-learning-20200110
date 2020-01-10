@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生JS写水平菜单</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav {
+            width: 960px;
+            height: 40px;
+            margin: 50px auto;
+            border: 1px solid blue;
+        }
+
+        .nav ul {
+            list-style: none;
+        }
+
+        .nav ul li {
+            float: left;
+            width: 120px;
+            height: 40px;
+        }
+
+        .nav ul li a {
+            display: block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+            background: orange;
+        }
+
+        .nav ul li a:hover {
+            background: yellow;
+        }
+
+        .nav ul li .dropbox {
+            width: 160px;
+            display: none;
+        }
+
+        .nav ul li .dropbox a {
+            width: 160px;
+            height: 30px;
+            line-height: 30px;
+            background: #ccc;
+            text-align: left;
+        }
+
+        .nav ul li .dropbox a:hover {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div class="nav" id="nav">
+    <ul>
+        <li><a href="">网站栏目</a></li>
+        <li>
+            <a href="">网站栏目</a>
+            <div class="dropbox">
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+            </div>
+        </li>
+        <li>
+            <a href="">网站栏目</a>
+            <div class="dropbox">
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+            </div>
+        </li>
+        <li><a href="">网站栏目</a></li>
+        <li><a href="">网站栏目</a></li>
+        <li>
+            <a href="">网站栏目</a>
+            <div class="dropbox">
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+                <p><a href="">二级栏目</a></p>
+            </div>
+        </li>
+        <li><a href="">网站栏目</a></li>
+        <li><a href="">网站栏目</a></li>
+    </ul>
+</div>
+
+<script>
+    let nav = document.getElementById("nav")
+    let lis = nav.getElementsByTagName("li")
+    console.log(lis)
+
+    //li的监听：
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].onmouseover = function () {
+            let self = this
+            let mydropbox = (function () {
+                for (let j = 0; j < self.childNodes.length; j++) {
+                    if (self.childNodes[j].className == "dropbox") {
+                        return self.childNodes[j]
+                    }
+                }
+            })()
+            mydropbox.style.display = "block"
+        }
+
+        lis[i].onmouseout = function () {
+            let self = this
+            let mydropbox = (function () {
+                for (let j = 0; j < self.childNodes.length; j++) {
+                    if (self.childNodes[j].className == "dropbox") {
+                        return self.childNodes[j]
+                    }
+                }
+            })()
+            mydropbox.style.display = "none"
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原生JS节点关系小效果</title>
+    <style>
+        /** {*/
+        /*    margin: 0px;*/
+        /*    padding: 0;*/
+        /*}*/
+        .choose{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div class="nav" id="box">
+    <ul>
+        <li>
+            <input type="checkbox">
+            吃饭
+        </li>
+        <li>
+            <input type="checkbox">
+            睡觉
+        </li>
+        <li>
+            <input type="checkbox">
+            打豆豆
+        </li>
+    </ul>
+</div>
+
+<script>
+    let inputs = document.getElementsByTagName("input")
+    console.log(inputs)
+
+    for(let i = 0; i<inputs.length ; i++){
+        //当“勾选情况”改变时触发onchange事件，为什么不用onclick事件？
+        //因为用户可能用键盘tab键来改变复选框的勾选情况
+        inputs[i].onchange = function () {
+            //某个复选框被勾选，那么它的爸爸就是choose类
+            this.parentNode.className = this.checked ? "choose" : ""
+        }
+    }
+</script>
+</body>
+</html>

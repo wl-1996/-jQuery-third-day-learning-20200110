@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点关系</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            width: 60px;
+            height: 60px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+
+<script>
+    let oDiv = document.getElementById("box")
+    oDiv.childNodes[1].style.backgroundColor = "red"
+
+    // 这个函数返回obj对象的所有元素节点数组或者数组里的某一项：
+    function children(obj, num) {
+        let arr = []
+        for (let i = 0; i < obj.childNodes.length; i++) {
+            //寻找真正的元素节点，不考虑文本节点（空格和换行）
+            if (obj.childNodes[i].nodeType == 1) {
+                arr.push(obj.childNodes[i])
+            }
+        }
+        //如果用户传入了num，就返回数组里的第num项，否则就返回整个数组：
+        return num ? arr[num] : arr
+    }
+
+    children(oDiv, 2).style.backgroundColor = "black"
+    children(oDiv)[3].style.backgroundColor = "blue"
+</script>
+</body>
+</html>

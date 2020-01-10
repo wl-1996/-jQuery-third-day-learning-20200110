@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>parent方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .choose{
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+<div class="form">
+    <ul>
+        <li><input type="checkbox">哈哈哈</li>
+        <li><input type="checkbox">哈哈哈</li>
+        <li><input type="checkbox">哈哈哈</li>
+        <li><input type="checkbox">哈哈哈</li>
+    </ul>
+</div>
+
+<script src="./js/jquery-1.12.3.min.js"></script>
+<script>
+    // $("p").parent().css("backgroundColor", "red")
+    $("input").click(function () {
+        //[0]的作用是转为原生对象
+        if($(this)[0].checked){
+            $(this).parent().addClass("choose")
+        }else{
+            $(this).parent().removeClass("choose")
+        }
+    })
+</script>
+</body>
+</html>
