@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<select name="" id="year">
+</select>
+
+<script>
+    let year = document.getElementById("year")
+
+    // for (let i = 1950; i <= 2019; i++) {
+    //     //创建节点：
+    //     let op = document.createElement("option")
+    //     //改变创建的节点的value属性和里面的内容：
+    //     op.value = i
+    //     op.innerHTML = i
+    //     //在year节点的内部，从后面追加节点 op
+    //     year.appendChild(op)
+    // }
+
+    for (let i = 1996; i <= 2020; i++) {
+        year.innerHTML += "<option value=" + i + ">" + i + "</option>"
+    }
+</script>
+</body>
+</html>

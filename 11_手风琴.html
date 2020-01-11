@@ -6,8 +6,139 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>手风琴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .accordion {
+            width: 500px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+
+        .accordion ul {
+            list-style: none;
+        }
+
+        .accordion ul li h3 {
+            line-height: 40px;
+            background: skyblue;
+            padding: 0 10px;
+            border-bottom: 1px solid #000;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .accordion ul li.cur h3 {
+            background: orange;
+        }
+
+
+        .accordion ul li .content {
+            padding: 10px;
+            line-height: 150%;
+            font-size: 16px;
+            display: none;
+        }
+
+        .accordion ul li.first .content {
+            display: block;
+        }
+
+        i {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: url("./images/icon.png");
+            transition: all 1s ease 0s;
+        }
+
+        .accordion ul li.cur i{
+            transform: rotate(90deg);
+        }
+    </style>
 </head>
 <body>
+<div class="accordion">
+    <ul>
+        <li class="cur first">
+            <h3>授课时长和授课模式是怎样的？<i></i></h3>
+            <div class="content">
+                <p>
+                    一共88个教学日，上2天休息1天，每个月能上22天课，
+                    所以总时长一共4个月（预计毕业时间是7月22日）。
+                    教学时间为上午9:00~12:00，下午14:30~17:30，
+                    晚自习时间为18:00~20:00。
+                </p>
+            </div>
+        </li>
+        <li>
+            <h3>授课时长和授课模式是怎样的？<i></i></h3>
+            <div class="content">
+                <p>
+                    一共88个教学日，上2天休息1天，每个月能上22天课，
+                    所以总时长一共4个月（预计毕业时间是7月22日）。
+                    教学时间为上午9:00~12:00，下午14:30~17:30，
+                    晚自习时间为18:00~20:00。
+                </p>
+            </div>
+        </li>
+        <li>
+            <h3>授课时长和授课模式是怎样的？<i></i></h3>
+            <div class="content">
+                <p>
+                    一共88个教学日，上2天休息1天，每个月能上22天课，
+                    所以总时长一共4个月（预计毕业时间是7月22日）。
+                    教学时间为上午9:00~12:00，下午14:30~17:30，
+                    晚自习时间为18:00~20:00。
+                </p>
+            </div>
+        </li>
+        <li>
+            <h3>授课时长和授课模式是怎样的？<i></i></h3>
+            <div class="content">
+                <p>
+                    一共88个教学日，上2天休息1天，每个月能上22天课，
+                    所以总时长一共4个月（预计毕业时间是7月22日）。
+                    教学时间为上午9:00~12:00，下午14:30~17:30，
+                    晚自习时间为18:00~20:00。
+                </p>
+            </div>
+        </li>
+    </ul>
+</div>
 
+<script src="./js/jquery-1.12.3.min.js"></script>
+<script>
+    $(".accordion ul li h3").click(function () {
+        // 所有的content合上：
+        $(".content").slideUp()
+        // 如果自己的兄弟可见：
+        if ($(this).siblings(".content").is(":visible")) {
+            // 让自己的兄弟不可见，合上：
+            $(this).siblings(".content").stop(true).slideUp()
+            // 让自己的父亲去掉cur类
+            $(this).parent().removeClass("cur")
+        } else {
+            // 如果自己的兄弟不可见：
+            // 就让自己的兄弟可见，展开
+            $(this).siblings(".content").stop(true).slideDown()
+            // 去掉所有的cur
+            $(".cur").removeClass("cur")
+            // 给自己的父亲加上cur
+            $(this).parent().addClass("cur")
+        }
+
+        //上边的代码简化写法：
+        // $(".accordion ul li").removeClass("cur")
+        // $(this).siblings(".content").stop(true).slideToggle()
+        // $(this).parent().addClass("cur")
+    })
+</script>
 </body>
 </html>

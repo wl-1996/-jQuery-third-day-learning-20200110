@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button" id="btn" value="按我">
+<ul>
+</ul>
+
+<script>
+    let memeda = document.getElementById("memeda")
+    let ul = document.getElementsByTagName("ul")[0]
+    let btn = document.getElementById("btn")
+    let txt = document.getElementById("txt")
+    let lis = document.getElementsByTagName("li")
+
+    btn.onclick = function () {
+        //创建一个新节点：
+        let oLi = document.createElement("li")
+        //给新节点写入内容
+        oLi.innerHTML = txt.value
+        //把oLi节点插入到ul节点内部的lis[0]节点之前：
+        ul.insertBefore(oLi, lis[0])
+    }
+</script>
+</body>
+</html>
