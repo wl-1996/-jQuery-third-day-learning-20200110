@@ -20,10 +20,12 @@
             border: 1px solid #000;
             float: left;
         }
-        .tools{
+
+        .tools {
             float: left;
         }
-        ul{
+
+        ul {
             list-style: none;
         }
     </style>
@@ -43,13 +45,30 @@
 </div>
 <div class="tools">
     <p>
-        <input type="button" value=">>>>>>>>>>>">
+        <input id="btn1" type="button" value=">>>>>>>>>>>">
     </p>
     <p>
-        <input type="button" value="<<<<<<<<<<<">
+        <input id="btn2" type="button" value="<<<<<<<<<<<">
     </p>
 </div>
-<div class="box2"></div>
+<div class="box2">
+    <ul></ul>
+</div>
 
+<script src="./js/jquery-1.12.3.min.js"></script>
+<script>
+    $("#btn1").click(function () {
+        //从盒子1移动到盒子2：
+        $(".box1 input:checked").parent().remove().appendTo($(".box2 ul"))
+        //去掉默认勾选
+        $("input").attr("checked", false)
+    })
+    $("#btn2").click(function () {
+        //从盒子2移动到盒子1：
+        $(".box2 input:checked").parent().remove().appendTo($(".box1 ul"))
+        //去掉默认勾选
+        $("input").attr("checked", false)
+    })
+</script>
 </body>
 </html>
